@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#101a19">
+  <title>Shinobi Skirmish — 3v3</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E5%BF%8D%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Shinobi Skirmish home"><span class="brand-mark">忍</span><span>SHINOBI <b>SKIRMISH</b></span></a>
+      <div class="season"><span class="season-dot"></span> LEAF FRONTIER <span class="season-divider">/</span> 3v3 ARENA</div>
+      <div class="player-chip"><span class="rank-icon">✦</span><span><b id="level-label">ROOKIE · LV 1</b><small id="xp-label">0 / 100 XP</small></span></div>
+    </header>
+
+    <section class="game-layout">
+      <div class="arena-column">
+        <div class="arena-frame">
+          <canvas id="game" width="480" height="300" aria-label="Top-down ninja battle arena"></canvas>
+          <div class="canvas-vignette"></div>
+          <div class="arena-hud">
+            <div class="match-pill"><span class="live-dot"></span><span id="match-state">TRAINING GROUNDS</span></div>
+            <div class="scoreboard"><span class="blue-score" id="blue-score">3</span><span class="score-dash">—</span><span class="red-score" id="red-score">3</span></div>
+            <div class="timer" id="timer">00:00</div>
+          </div>
+          <div id="toast" class="toast" aria-live="polite"></div>
+          <div id="start-overlay" class="start-overlay">
+            <div class="intro-copy"><div class="eyebrow"><span></span> TACTICAL TEAM BATTLE <span></span></div><h1>THE LEAF<br><em>FRONTIER</em></h1><p>Three shinobi. One battlefield.<br>Lead your squad to victory.</p></div>
+            <div class="select-panel">
+              <div class="select-title"><div><small>CHOOSE YOUR SHINOBI</small><h2>Pick a fighter</h2></div><span class="select-count">ROSTER <b>06</b></span></div>
+              <div class="roster" id="roster"></div>
+              <div class="select-footer"><span id="hero-summary">Choose a hero to see their combat style.</span><button id="start-button" class="primary-button" disabled>DEPLOY TO BATTLE <span>↗</span></button></div>
+            </div>
+          </div>
+          <div id="result-overlay" class="result-overlay hidden">
+            <div class="result-card"><div id="result-kicker" class="eyebrow">BATTLE COMPLETE</div><h2 id="result-title">VICTORY</h2><p id="result-copy">Your squad secured the frontier.</p><div class="reward-row"><span>REWARD</span><b id="reward-xp">+50 XP</b></div><button id="rematch-button" class="primary-button">FIGHT AGAIN <span>↗</span></button><button id="roster-button" class="text-button">CHANGE SHINOBI</button></div>
+          </div>
+          <div class="touch-controls" aria-label="Touch controls">
+            <div id="stick-zone" class="stick-zone"><div class="stick-base"><div id="stick-knob" class="stick-knob"></div></div><span>MOVE</span></div>
+            <div class="touch-actions"><button class="touch-skill basic-touch" data-action="attack"><span class="btn-glyph">✦</span><small>ATK</small></button><button class="touch-skill" data-action="skill1"><span class="btn-glyph">1</span><small id="touch-skill1">JUTSU</small></button><button class="touch-skill" data-action="skill2"><span class="btn-glyph">2</span><small id="touch-skill2">JUTSU</small></button><button class="touch-skill" data-action="skill3"><span class="btn-glyph">3</span><small id="touch-skill3">JUTSU</small></button></div>
+          </div>
+        </div>
+        <div class="match-footer"><div class="objective"><span class="objective-icon">◎</span><span><b>OBJECTIVE</b><small>Defeat the opposing squad</small></span></div><div class="controls-hint"><span>WASD</span> MOVE <i>·</i> <span>SPACE</span> ATTACK <i>·</i> <span>1 2 3</span> JUTSU</div><div class="map-label"><span class="map-pin">⌖</span> HIDDEN LEAF OUTSKIRTS</div></div>
+      </div>
+
+      <aside class="side-panel">
+        <section class="hero-card">
+          <div class="section-heading"><span>YOUR SHINOBI</span><span class="small-tag">FIELD STATUS</span></div>
+          <div class="hero-identity"><div id="hero-portrait" class="hero-portrait"><span>?</span></div><div><h2 id="hero-name">Awaiting selection</h2><p id="hero-role">Choose your fighter</p><div id="hero-stars" class="stars">✦ ✦ ✦</div></div></div>
+          <div class="vitals"><div class="vital-label"><span>HEALTH</span><b id="health-text">— / —</b></div><div class="bar health-bar"><i id="health-fill"></i></div><div class="vital-label chakra-label"><span>CHAKRA</span><b id="chakra-text">— / —</b></div><div class="bar chakra-bar"><i id="chakra-fill"></i></div></div>
+          <div class="stat-grid"><div><span>POWER</span><b id="stat-power">—</b></div><div><span>AGILITY</span><b id="stat-agility">—</b></div><div><span>DEFENSE</span><b id="stat-defense">—</b></div></div>
+        </section>
+        <section class="squad-card"><div class="section-heading"><span>SQUAD ROSTER</span><span id="squad-status" class="squad-status">WAITING</span></div><div id="squad-list" class="squad-list"><div class="empty-squad">Deploy to assemble your squad</div></div></section>
+        <section class="jutsu-card"><div class="section-heading"><span>JUTSU LOADOUT</span><span class="small-tag">CHAKRA COST</span></div><div id="jutsu-list" class="jutsu-list"><p class="empty-squad">Select a shinobi to preview abilities</p></div></section>
+        <div class="tip-card"><span class="tip-spark">✧</span><p><b>FIELD TIP</b><br>Stay with your squad. Teammates fight alongside you and focus nearby enemies.</p></div>
+      </aside>
+    </section>
+    <footer class="page-footer"><span>SHINOBI SKIRMISH <b>·</b> FIELD EXERCISE 07</span><span>UNOFFICIAL FAN-MADE TRIBUTE <b>·</b> INSPIRED BY CLASSIC NINJA ADVENTURES</span></footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
