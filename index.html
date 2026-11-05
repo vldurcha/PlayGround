@@ -26,11 +26,16 @@
             <div class="scoreboard"><span class="blue-score" id="blue-score">3</span><span class="score-dash">—</span><span class="red-score" id="red-score">3</span></div>
             <div class="timer" id="timer">00:00</div>
           </div>
+          <div id="transform-widget" class="transform-widget" aria-label="Hero transformation">
+            <div class="transform-copy"><b id="transform-name">TRANSFORMATION</b><small id="transform-status">FIGHT TO CHARGE · T</small></div>
+            <div id="transform-meter" class="transform-meter" role="progressbar" aria-label="Transformation charge" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="transform-fill"></i></div>
+            <button id="transform-button" class="transform-button" type="button" aria-label="Activate transformation" disabled><span>忍</span><b>AWAKEN</b></button>
+          </div>
           <div id="toast" class="toast" aria-live="polite"></div>
           <div id="start-overlay" class="start-overlay">
             <div class="intro-copy"><div class="eyebrow"><span></span> TACTICAL TEAM BATTLE <span></span></div><h1>THE LEAF<br><em>FRONTIER</em></h1><p>Three shinobi. One battlefield.<br>Lead your squad to victory.</p></div>
             <div class="select-panel">
-              <div class="select-title"><div><small>CHOOSE YOUR SHINOBI</small><h2>Pick a fighter</h2></div><span class="select-count">ROSTER <b>06</b></span></div>
+              <div class="select-title"><div><small>CHOOSE YOUR SHINOBI</small><h2>Pick a fighter</h2></div><span class="select-count">ROSTER <b>13</b></span></div>
               <div class="roster" id="roster"></div>
               <div class="select-footer"><span id="hero-summary">Choose a hero to see their combat style.</span><button id="start-button" class="primary-button" disabled>DEPLOY TO BATTLE <span>↗</span></button></div>
             </div>
