@@ -8,7 +8,7 @@
 /* Hero transformation HUD */
 .transform-widget{position:absolute;z-index:4;right:12px;bottom:12px;width:188px;padding:8px;background:#101915dc;border:1px solid #6f854e;box-shadow:0 4px 18px #080d0bcc;display:grid;grid-template-columns:1fr auto;gap:5px 8px;align-items:center;backdrop-filter:blur(4px)}.transform-copy{min-width:0}.transform-copy b,.transform-copy small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.transform-copy b{font:9px 'DM Mono',monospace;letter-spacing:.5px;color:#e3edc4}.transform-copy small{font:7px 'DM Mono',monospace;color:#a0ae8d;margin-top:3px}.transform-meter{height:6px;grid-column:1;width:100%;background:#29352c;border:1px solid #506047;overflow:hidden}.transform-meter i{display:block;width:0;height:100%;background:linear-gradient(90deg,#96c852,#e4f493);box-shadow:0 0 8px #c5ee70;transition:width .18s}.transform-button{grid-column:2;grid-row:1/3;min-width:60px;height:40px;padding:3px 6px;border:1px solid #849b54;background:#263626;color:#dceaa6;font:8px 'DM Mono',monospace;cursor:pointer;touch-action:manipulation}.transform-button span{display:block;font:16px serif;line-height:17px}.transform-button b{font-size:7px;letter-spacing:.4px}.transform-button:disabled{opacity:.55;cursor:not-allowed;filter:saturate(.55)}.transform-button.ready{background:#668735;border-color:#e4f493;color:#fff;box-shadow:0 0 14px #b6e66388;animation:transformPulse 1s steps(2,end) infinite}.transform-widget.active{border-color:#f7d772;box-shadow:0 0 15px #f7bd4c55}.transform-widget.active .transform-meter i{background:linear-gradient(90deg,#f3a347,#fff0a0)}@keyframes transformPulse{50%{filter:brightness(1.35)}}
 @media(max-width:800px), (pointer:coarse) and (max-height:500px){.transform-widget{right:auto;left:8px;bottom:94px;width:173px;padding:6px;gap:4px 6px}.transform-copy b{font-size:8px}.transform-copy small{font-size:6px}.transform-button{height:36px;min-width:55px}.transform-meter{height:5px}}
-@media(max-width:420px){.transform-widget{bottom:94px;left:6px;width:158px}.transform-copy b{font-size:7px}}
+@media(max-width:420px){.transform-widget{bottom:94px;left:6px;width:190px}.transform-copy b{font-size:7px}}
 
 /* Touch-first combat HUD and phone-sized selection */
 .mobile-vitals{display:none}
@@ -96,7 +96,7 @@
   .stick-base{width:52px;height:52px}
   .touch-skill{width:42px;min-width:42px;height:42px;min-height:42px}
   .basic-touch{width:44px;height:46px}
-  .transform-widget{bottom:73px;width:150px;padding:4px}
+  .transform-widget{bottom:73px;width:190px;padding:4px}
   .transform-button{height:32px}
   .start-overlay{padding:5px 14px}
   .select-panel{padding:5px 8px}
@@ -109,7 +109,7 @@
   body.game-active{position:fixed;inset:0;width:100%;height:100vh;height:100dvh;min-height:0;overflow:hidden}
   body.game-active .shell{height:100vh;height:100dvh;min-height:0;display:flex;flex-direction:column}
   body.game-active .game-layout{flex:1;min-height:0;padding-top:6px}
-  body.game-active .arena-column{flex:1;min-height:0}
+  body.game-active .arena-column{display:flex;flex:1;flex-direction:column;min-height:0}
   body.game-active .arena-frame{flex:1;min-height:0;aspect-ratio:auto;max-height:none}
   body.game-active .side-panel,body.game-active .page-footer{display:none}
   body.game-active .match-footer{flex:none}
